@@ -3,7 +3,7 @@ include "../conn.php";
 	
 if(isset($_POST['submit'])) {
 
-	$id = $_POST['id_announcement_update'];
+
 	// Count total files
 	$countfiles = count(($_FILES['files_update']['name']));
 
@@ -43,6 +43,8 @@ if(isset($_POST['submit'])) {
 		$description = $_POST['description_announcement_update'][$i];
 
 		$date_announce = $_POST['date_announce_update'];
+
+		// $id = $_POST['id_announcement_update'][$i];
 		// file extension
 		$file_extension = pathinfo(
 			$target_file, PATHINFO_EXTENSION);
@@ -61,7 +63,7 @@ if(isset($_POST['submit'])) {
 				$target_file)
 			) {
 
-					$query = "UPDATE announcemt SET file_name = $filename, announcement_description = '$description', date_announce = '$date_announce', image = '$target_file' WHERE id = $id";
+					$query = "UPDATE announcemt SET file_name = $filename, announcement_description = '$description', date_announce = '$date_announce', image = '$target_file'";
 					$statement = $conn->prepare($query);
 
 				// Execute query

@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">Update Announcement</h4>
-        <input type="hidden" name="id_announcement_update" id="id_announcement_update" class="form-control">
+        <input type="hidden" name="id_announcement_update[]" id="id_announcement_update" class="form-control">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="javascript:window.location.reload()">
           <span aria-hidden="true">&times;</span>
         </button>

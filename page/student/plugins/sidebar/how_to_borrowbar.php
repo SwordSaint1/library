@@ -37,7 +37,7 @@
           </li>
                <li class="nav-item">
             <a href="dashboard.php" class="nav-link ">
-              <i class="fas fa-address-card"></i>
+              <i class="fa fa-list-ul"></i>
               <p>
                Rules 
                
@@ -88,7 +88,16 @@
                
               </p>
             </a>
-          </li>  
+          </li>
+            <li class="nav-item">
+            <a href="student_info.php" class="nav-link">
+              <i class="fas fa-address-card"></i>
+              <p>
+              Student Info 
+               
+              </p>
+            </a>
+          </li>    
           </li>  
          <?php include 'logout.php' ;?>
         </ul>

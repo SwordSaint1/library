@@ -32,20 +32,24 @@ if ($method == 'register_borrowers') {
 if ($method == 'fetch_borrower_user') {
 	$full_name = $_POST['full_name'];
 	$c = 0;
-	$query = "SELECT * FROM borrower_details WHERE full_name LIKE '$full_name%'";
+	
+	$query = "SELECT sum(datediff('2022-05-28',borrowed_books.due_date) * 10) as penalty,borrower_details.points,borrower_details.full_name,borrower_details.borrowers_id,
+		borrower_details.gender,borrower_details.contact_no,borrower_details.course_year,borrower_details.qr_id,borrower_details.id FROM borrowed_books LEFT JOIN borrower_details ON borrower_details.borrowers_id = borrowed_books.borrowers_id WHERE borrowed_books.status = 'Borrow' AND borrower_details.full_name LIKE '$full_name%' GROUP BY borrowed_books.borrowers_id";
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 	if ($stmt->rowCount() > 0) {
 		foreach($stmt->fetchALL() as $j){
 			$c++;
 
-			echo '<tr style="cursor:pointer;" class="modal-trigger" data-toggle="modal" data-target="#update_borrower" onclick="get_borrower_details(&quot;'.$j['id'].'~!~'.$j['borrowers_id'].'~!~'.$j['full_name'].'~!~'.$j['gender'].'~!~'.$j['contact_no'].'~!~'.$j['course_year'].'~!~'.$j['qr_id'].'&quot;)">';
+			echo '<tr style="cursor:pointer;" class="modal-trigger" data-toggle="modal" data-target="#update_borrower" onclick="get_borrower_details(&quot;'.$j['id'].'~!~'.$j['borrowers_id'].'~!~'.$j['full_name'].'~!~'.$j['gender'].'~!~'.$j['contact_no'].'~!~'.$j['course_year'].'~!~'.$j['qr_id'].'~!~'.$j['penalty'].'~!~'.$j['points'].'&quot;)">';
 				echo '<td>'.$c.'</td>';
 				echo '<td>'.$j['borrowers_id'].'</td>';
 				echo '<td>'.$j['full_name'].'</td>';
 				echo '<td>'.$j['gender'].'</td>';
 				echo '<td>'.$j['contact_no'].'</td>';
 				echo '<td>'.$j['course_year'].'</td>';
+				echo '<td>'.$j['penalty'].'</td>';
+				echo '<td>'.$j['points'].'</td>';
 			echo '</tr>';
 		}
 	}else{

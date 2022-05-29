@@ -1,5 +1,7 @@
 <script type="text/javascript">
-
+$(document).ready(function(){
+    search_announcement();
+})
 const search_announcement =()=>{
 	var datefrom  = document.getElementById('attendance_from').value;
 	var dateto = document.getElementById('attendance_to').value;

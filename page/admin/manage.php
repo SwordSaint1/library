@@ -65,6 +65,8 @@
                     <th>Gender</th>
                     <th>Contact No</th>
                     <th>Course / Year</th>
+                    <th>Penalty</th>
+                    <th>Points</th>
             </thead>
             <tbody id="list_of_borrowers" style="text-align:center;"></tbody>
                 </table>

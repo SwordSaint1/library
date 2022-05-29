@@ -2,7 +2,7 @@
 
 const load_borrower =()=>{
 	var full_name = document.getElementById('full_name_manage').value;
-
+ 
 	$.ajax({
       url: '../../process/admin/manage.php',
                 type: 'POST',
@@ -77,6 +77,8 @@ const get_borrower_details =(param)=>{
     var contact_no = string[4];
     var course_year = string[5];
     var qr_id = string[6];
+    var penalty = string[7];
+    var points = string[8];
 
 document.getElementById('id_borrow_user_update').value = id;
 document.getElementById('borrow_id_user_update').value = borrowers_id;
@@ -85,6 +87,8 @@ document.getElementById('gender_user_update').value = gender;
 document.getElementById('contact_no_user_update').value = contact_no;
 document.getElementById('course_user_update').value = course_year; 
 document.getElementById('qr_user_update').value = qr_id; 
+document.getElementById('penalty_user_update').value = penalty; 
+document.getElementById('points_user_update').value = points; 
 }
 
 const update_borrower =()=>{

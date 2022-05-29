@@ -26,8 +26,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-            <a href="announcement.php" class="nav-link active">
+                 <li class="nav-item">
+            <a href="announcement.php" class="nav-link">
               <i class="fas fa-bullhorn"></i>
               <p>
                Announcement 
@@ -90,7 +90,7 @@
             </a>
           </li>  
            <li class="nav-item">
-            <a href="student_info.php" class="nav-link">
+            <a href="student_info.php" class="nav-link active">
               <i class="fas fa-address-card"></i>
               <p>
               Student Info 
